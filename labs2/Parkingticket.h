@@ -10,6 +10,7 @@ public:
     Parkingticket();
     Parkingticket(int number, int date_);
     Parkingticket(const Parkingticket &other);
+    Parkingticket(Parkingticket&& other) noexcept;
 
     int getNumberTicket() const;
     void setNumberTicket(int number);

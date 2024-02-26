@@ -14,6 +14,7 @@ public:
     Vehicle();
     Vehicle(const char* brand, const char* plate);
     Vehicle(Vehicle &other);
+    Vehicle(Vehicle&& other) noexcept;
 
     const char* getBrand() const;
     void setBrand(const char* brand);
