@@ -9,6 +9,7 @@ class Vehicle {
 private:
     char brandcar[50];
     char plate_number[20];
+    static int count;
 
 public:
     Vehicle();
@@ -21,8 +22,11 @@ public:
 
     const char* getPlateNumber() const;
     void setPlateNumber(const char* plate);
+    void printInfo() const;
+    static int getCount();
 
     ~Vehicle();
 };
+
 
 #endif // VEHICLE_H

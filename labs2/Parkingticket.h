@@ -17,6 +17,7 @@ public:
 
     int getDate() const;
     void setDate(int date_);
+    void printInfo() const;
 
     ~Parkingticket();
 };

@@ -1,13 +1,9 @@
 #include "Vehicle.h"
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 Vehicle::Vehicle() : Vehicle("-", "-") {}
-
-Vehicle::Vehicle(const char* brand, const char* plate) : brandcar{'\0'}, plate_number{'\0'} {
-    strcpy(brandcar, brand);
-    strcpy(plate_number, plate);
-}
 
 Vehicle::Vehicle(Vehicle &other)
 {
@@ -22,6 +18,15 @@ Vehicle::Vehicle(Vehicle&& other) noexcept {
     strcpy(other.plate_number, "");
     cout << "Copy constructor was called for vehicle" << endl;
 }
+
+int Vehicle::count = 0;
+
+Vehicle::Vehicle(const char* brand, const char* plate) {
+    std::strcpy(brandcar, brand);
+    std::strcpy(plate_number, plate);
+    count++;
+}
+
 
 const char* Vehicle::getBrand() const {
     return brandcar;
@@ -39,5 +44,15 @@ void Vehicle::setPlateNumber(const char* plate) {
     strcpy(plate_number, plate);
 }
 
-Vehicle::~Vehicle() {}
+void Vehicle::printInfo() const {
+    cout << "Vehicle brand: " << this->getBrand() << endl;
+    cout << "Plate number: " << this->getPlateNumber() << endl;
+}
 
+int Vehicle::getCount() {
+    return count;
+}
+
+Vehicle::~Vehicle() {
+    count--;
+}

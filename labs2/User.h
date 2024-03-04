@@ -18,6 +18,7 @@ public:
 
     const char* getName() const;
     void setName(const char* name_);
+    void printInfo() const;
 
     ~User();
 };

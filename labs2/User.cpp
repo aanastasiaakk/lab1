@@ -24,4 +24,9 @@ void User::setName(const char* name_) {
     strcpy(name, name_);
 }
 
+void User::printInfo() const {
+        cout << "User's age: " << this->getAge() << endl;
+        cout << "User's name: " << this->getName() << endl;
+    }
+
 User::~User() {}

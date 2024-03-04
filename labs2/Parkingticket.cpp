@@ -27,4 +27,9 @@ void Parkingticket::setDate(int date_) {
     date = date_;
 }
 
+void Parkingticket::printInfo() const {
+    cout << "Parking ticket number: " << this->getNumberTicket() << endl;
+    cout << "Date: " << this->getDate() << endl;
+}
+
 Parkingticket::~Parkingticket() {}
