@@ -1,6 +1,10 @@
 #ifndef LABS2_PARKINGTICKET_H
 #define LABS2_PARKINGTICKET_H
 
+#include <iostream>
+using namespace std;
+
+
 class Parkingticket {
 private:
     int number_ticket;
@@ -19,8 +23,10 @@ public:
 
     void printInfo() const;
 
+    friend ostream& operator<<(ostream& os, const Parkingticket& ticket);
+    friend istream& operator>>(istream& is, Parkingticket& ticket);
+
     ~Parkingticket();
 };
 
 #endif // PARKINGTICKET_H
-

@@ -37,4 +37,14 @@ void Parkingticket::printInfo() const {
     cout << "Date: " << this->getDate() << endl;
 }
 
-Parkingticket::~Parkingticket() {}
+ostream& operator<<(ostream& os, const Parkingticket& ticket) {
+    os << "Ticket number: " << ticket.number_ticket << ", Date: " << ticket.date;
+    return os;
+}
+
+istream& operator>>(istream& is, Parkingticket& ticket) {
+    is >> ticket.number_ticket >> ticket.date;
+    return is;
+}
+
+Parkingticket::~Parkingticket(){};

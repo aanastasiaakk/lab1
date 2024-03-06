@@ -25,7 +25,6 @@ Vehicle::Vehicle(Vehicle&& other) noexcept {
     strcpy(other.plate, "");
 }
 
-Vehicle::~Vehicle() {}
 
 const char* Vehicle::getBrand() const {
     return brand;
@@ -47,3 +46,14 @@ void Vehicle::printInfo() const {
     cout << "Brand: " << brand << ", Plate: " << plate << std::endl;
 }
 
+ostream& operator<<(ostream& os, const Vehicle& vehicle) {
+    os << "Brand: " << vehicle.brand << ", Plate: " << vehicle.plate;
+    return os;
+}
+
+istream& operator>>(istream& is, Vehicle& vehicle) {
+    is >> vehicle.brand >> vehicle.plate;
+    return is;
+}
+
+Vehicle::~Vehicle() {}

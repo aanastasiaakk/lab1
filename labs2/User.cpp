@@ -51,4 +51,15 @@ bool User::operator==(const User& other) const {
     return (age == other.age && strcmp(name, other.name) == 0);
 }
 
-User::~User() {}
+ostream& operator<<(ostream& os, const User& user) {
+    os << "Name: " << user.name << ", Age: " << user.age;
+    return os;
+}
+
+istream& operator>>(istream& is, User& user) {
+    is >> user.name >> user.age;
+    return is;
+}
+
+
+User::~User(){};

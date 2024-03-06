@@ -1,9 +1,10 @@
 #ifndef LABS2_VEHICLE_H
 #define LABS2_VEHICLE_H
 
+#include <iostream>
 #include <cstring>
 
-#include <cstring>
+using namespace std;
 
 class Vehicle {
 private:
@@ -22,6 +23,9 @@ public:
     void setPlateNumber(const char* plate);
 
     void printInfo() const;
+
+    friend ostream& operator<<(ostream& os, const Vehicle& vehicle);
+    friend istream& operator>>(istream& is, Vehicle& vehicle);
 
     ~Vehicle();
 };

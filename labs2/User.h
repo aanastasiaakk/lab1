@@ -2,6 +2,9 @@
 #define LABS2_USER_H
 
 #include <cstring>
+#include <iostream>
+
+using namespace std;
 
 class User {
 private:
@@ -23,8 +26,10 @@ public:
 
     bool operator==(const User& other) const;
 
+    friend ostream& operator<<(ostream& os, const User& user);
+    friend istream& operator>>(istream& is, User& user);
+
     ~User();
 };
 
 #endif // USER_H
-
