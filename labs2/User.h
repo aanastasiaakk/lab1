@@ -7,7 +7,7 @@ class User {
 private:
     int age;
     char name[50];
-
+    static int count;
 public:
     User();
     User(int age_, const char* name_);
@@ -15,10 +15,13 @@ public:
 
     int getAge() const;
     void setAge(int age_);
-
     const char* getName() const;
     void setName(const char* name_);
+    static int getCount();
+
     void printInfo() const;
+
+    bool operator==(const User& other) const;
 
     ~User();
 };

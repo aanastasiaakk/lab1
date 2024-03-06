@@ -2,10 +2,25 @@
 #include <iostream>
 using namespace std;
 
-User::User() : User(0, "-") {}
 
-User::User(int age_, const char* name_) : age(age_) {
+int User::count = 0;
+
+User::User() {
+    age = 0;
+    strcpy(name, "");
+    count++;
+}
+
+User::User(int age_, const char* name_) {
+    age = age_;
     strcpy(name, name_);
+    count++;
+}
+
+User::User(const User &other) {
+    age = other.age;
+    strcpy(name, other.name);
+    count++;
 }
 
 int User::getAge() const {
@@ -24,9 +39,16 @@ void User::setName(const char* name_) {
     strcpy(name, name_);
 }
 
+int User::getCount() {
+    return count;
+}
+
 void User::printInfo() const {
-        cout << "User's age: " << this->getAge() << endl;
-        cout << "User's name: " << this->getName() << endl;
-    }
+    cout << "Name: " << name << ", Age: " << age << endl;
+}
+
+bool User::operator==(const User& other) const {
+    return (age == other.age && strcmp(name, other.name) == 0);
+}
 
 User::~User() {}

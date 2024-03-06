@@ -3,56 +3,47 @@
 #include <cstring>
 using namespace std;
 
-Vehicle::Vehicle() : Vehicle("-", "-") {}
+Vehicle::Vehicle() {
+    strcpy(brand, "");
+    strcpy(plate, "");
+}
 
-Vehicle::Vehicle(Vehicle &other)
-{
-    strcpy (brandcar, other.brandcar);
-    strcpy (plate_number, other.plate_number);
+Vehicle::Vehicle(const char* brand, const char* plate) {
+    strcpy(this->brand, brand);
+    strcpy(this->plate, plate);
+}
+
+Vehicle::Vehicle(Vehicle& other) {
+    strcpy(brand, other.brand);
+    strcpy(plate, other.plate);
 }
 
 Vehicle::Vehicle(Vehicle&& other) noexcept {
-    strcpy(brandcar, other.brandcar);
-    strcpy(plate_number, other.plate_number);
-    strcpy(other.brandcar, "");
-    strcpy(other.plate_number, "");
-    cout << "Copy constructor was called for vehicle" << endl;
+    strcpy(brand, move(other.brand));
+    strcpy(plate, move(other.plate));
+    strcpy(other.brand, "");
+    strcpy(other.plate, "");
 }
 
-int Vehicle::count = 0;
-
-Vehicle::Vehicle(const char* brand, const char* plate) {
-    std::strcpy(brandcar, brand);
-    std::strcpy(plate_number, plate);
-    count++;
-}
-
+Vehicle::~Vehicle() {}
 
 const char* Vehicle::getBrand() const {
-    return brandcar;
+    return brand;
 }
 
 void Vehicle::setBrand(const char* brand) {
-    strcpy(brandcar, brand);
+    strcpy(this->brand, brand);
 }
 
 const char* Vehicle::getPlateNumber() const {
-    return plate_number;
+    return plate;
 }
 
 void Vehicle::setPlateNumber(const char* plate) {
-    strcpy(plate_number, plate);
+    strcpy(this->plate, plate);
 }
 
 void Vehicle::printInfo() const {
-    cout << "Vehicle brand: " << this->getBrand() << endl;
-    cout << "Plate number: " << this->getPlateNumber() << endl;
+    cout << "Brand: " << brand << ", Plate: " << plate << std::endl;
 }
 
-int Vehicle::getCount() {
-    return count;
-}
-
-Vehicle::~Vehicle() {
-    count--;
-}
