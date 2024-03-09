@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstring>
 #include "User.h"
 #include "Vehicle.h"
 #include "Parkingticket.h"
@@ -20,18 +19,23 @@ int main() {
 
     v.setBrand("BMW");
     v.setPlateNumber("CE0242CO");
-    p.setDate(06022024);
+    p.setDate(22032024);
     p.setNumberTicket(123456);
     u.setAge(19);
     u.setName("Sophia");
     s.setName("Angie");
     s.setAge(20);
 
+    Vehicle copyVehicle = v;
+    Vehicle moveVehicle = move(copyVehicle);
+
     v.printInfo();
     p.printInfo();
     u.printInfo();
     s.printInfo();
     q.printInfo();
+    copyVehicle.printInfo();
+    moveVehicle.printInfo();
 
     cout << endl;
 

@@ -9,4 +9,9 @@ add_executable(labs2 main.cpp
         Parkingticket.cpp
         Parkingticket.h
         User.cpp
-        User.h)
+        User.h
+        Car.cpp
+        Car.h
+        Truck.cpp
+        Truck.h
+)

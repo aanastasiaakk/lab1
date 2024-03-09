@@ -1,0 +1,52 @@
+#include <iostream>
+#include "Car.h"
+
+using namespace std;
+
+Car::Car() : Vehicle(), numberOfDoors(0) {}
+
+Car::Car(const char* brand, const char* plate, int numberOfDoors)
+        : Vehicle(brand, plate), numberOfDoors(numberOfDoors) {}
+
+Car::Car(const Car& other) : Vehicle(other.getBrand(), other.getPlateNumber()), numberOfDoors(other.numberOfDoors) {}
+
+Car::Car(Car&& other) noexcept : Vehicle(move(other)), numberOfDoors(other.numberOfDoors) {}
+
+int Car::getNumberOfDoors() const {
+    return numberOfDoors;
+}
+
+void Car::setNumberOfDoors(int numberOfDoors) {
+    this->numberOfDoors = numberOfDoors;
+}
+
+void Car::printInfo() const {
+    cout << "Brand: " << getBrand() << ", Plate Number: " << getPlateNumber()
+              << ", Number of Doors: " << numberOfDoors << endl;
+}
+
+ostream& operator<<(ostream& os, const Car& car) {
+    os << "Brand: " << car.getBrand() << ", Plate Number: " << car.getPlateNumber()
+       << ", Number of Doors: " << car.getNumberOfDoors();
+    return os;
+}
+
+istream& operator>>(istream& is, Car& car) {
+    char brand[50];
+    char plate[20];
+    int numberOfDoors;
+    cout << "Enter brand: ";
+    is >> brand;
+    cout << "Enter plate number: ";
+    is >> plate;
+    cout << "Enter number of doors: ";
+    is >> numberOfDoors;
+
+    car.setBrand(brand);
+    car.setPlateNumber(plate);
+    car.setNumberOfDoors(numberOfDoors);
+
+    return is;
+}
+
+Car::~Car() {}
