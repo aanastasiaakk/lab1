@@ -14,4 +14,6 @@ add_executable(labs2 main.cpp
         Car.h
         Truck.cpp
         Truck.h
+        Address.cpp
+        Address.h
 )

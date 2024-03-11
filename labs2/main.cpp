@@ -2,7 +2,8 @@
 #include "User.h"
 #include "Vehicle.h"
 #include "Parkingticket.h"
-
+#include "Car.h"
+#include "Truck.h"
 using namespace std;
 
 int main() {
@@ -11,12 +12,23 @@ int main() {
     User u;
     User s;
     User q;
+    Car w;
+    Truck o;
 
     cout<<"Enter information about user q:" << endl;
     cin >> q;
 
     cout << endl;
 
+    cout << "My car: " << endl;
+    cin >> w;
+
+    cout << endl;
+
+    cout << "My truck: " << endl;
+    cin >> o;
+
+    cout << endl;
     v.setBrand("BMW");
     v.setPlateNumber("CE0242CO");
     p.setDate(22032024);
@@ -36,6 +48,8 @@ int main() {
     q.printInfo();
     copyVehicle.printInfo();
     moveVehicle.printInfo();
+    w.printInfo();
+    o.printInfo();
 
     cout << endl;
 
@@ -47,7 +61,6 @@ int main() {
 
     cout << endl;
 
-    cout << "Number of users in the parking system: " << u.getCount() << endl;
 
 
     return 0;

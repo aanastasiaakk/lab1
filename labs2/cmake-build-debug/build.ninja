@@ -85,6 +85,12 @@ build CMakeFiles/labs2.dir/Truck.cpp.obj: CXX_COMPILER__labs2_unscanned_Debug C$
   OBJECT_DIR = CMakeFiles\labs2.dir
   OBJECT_FILE_DIR = CMakeFiles\labs2.dir
 
+build CMakeFiles/labs2.dir/Address.cpp.obj: CXX_COMPILER__labs2_unscanned_Debug C$:/labs/lab1/labs2/Address.cpp || cmake_object_order_depends_target_labs2
+  DEP_FILE = CMakeFiles\labs2.dir\Address.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\labs2.dir
+  OBJECT_FILE_DIR = CMakeFiles\labs2.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target labs2
@@ -93,7 +99,7 @@ build CMakeFiles/labs2.dir/Truck.cpp.obj: CXX_COMPILER__labs2_unscanned_Debug C$
 #############################################
 # Link the executable labs2.exe
 
-build labs2.exe: CXX_EXECUTABLE_LINKER__labs2_Debug CMakeFiles/labs2.dir/main.cpp.obj CMakeFiles/labs2.dir/Vehicle.cpp.obj CMakeFiles/labs2.dir/Parkingticket.cpp.obj CMakeFiles/labs2.dir/User.cpp.obj CMakeFiles/labs2.dir/Car.cpp.obj CMakeFiles/labs2.dir/Truck.cpp.obj
+build labs2.exe: CXX_EXECUTABLE_LINKER__labs2_Debug CMakeFiles/labs2.dir/main.cpp.obj CMakeFiles/labs2.dir/Vehicle.cpp.obj CMakeFiles/labs2.dir/Parkingticket.cpp.obj CMakeFiles/labs2.dir/User.cpp.obj CMakeFiles/labs2.dir/Car.cpp.obj CMakeFiles/labs2.dir/Truck.cpp.obj CMakeFiles/labs2.dir/Address.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\labs2.dir

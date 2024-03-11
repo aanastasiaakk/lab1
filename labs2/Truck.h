@@ -27,6 +27,3 @@ public:
 
 #endif // TRUCK_H
 
-
-
-#endif //LABS2_TRUCK_H

@@ -1,26 +1,16 @@
 #include "User.h"
 #include <iostream>
+#include <cstring>
+
 using namespace std;
 
-
-int User::count = 0;
-
-User::User() {
-    age = 0;
+User::User() : age(0) {
     strcpy(name, "");
-    count++;
 }
 
-User::User(int age_, const char* name_) {
-    age = age_;
-    strcpy(name, name_);
-    count++;
-}
-
-User::User(const User &other) {
-    age = other.age;
-    strcpy(name, other.name);
-    count++;
+User::User(int age_, const char* name_, const Address& address_) : age(age_), address(address_) {
+    strncpy(name, name_, 49);
+    name[49] = '\0';
 }
 
 int User::getAge() const {
@@ -36,30 +26,42 @@ const char* User::getName() const {
 }
 
 void User::setName(const char* name_) {
-    strcpy(name, name_);
+    strncpy(name, name_, 49);
+    name[49] = '\0';
 }
 
-int User::getCount() {
-    return count;
+const Address& User::getAddress() const {
+    return address;
+}
+
+void User::setAddress(const Address& address_) {
+    address = address_;
 }
 
 void User::printInfo() const {
     cout << "Name: " << name << ", Age: " << age << endl;
+    address.printInfo();
 }
 
 bool User::operator==(const User& other) const {
-    return (age == other.age && strcmp(name, other.name) == 0);
+    return (age == other.age) && (strcmp(name, other.name) == 0);
 }
 
 ostream& operator<<(ostream& os, const User& user) {
-    os << "Name: " << user.name << ", Age: " << user.age;
+    os << "Name: " << user.name << ", Age: " << user.age << ", Address: " << user.address;
     return os;
 }
 
 istream& operator>>(istream& is, User& user) {
-    is >> user.name >> user.age;
+    cout << "Enter name: ";
+    is >> user.name;
+    cout << "Enter age: ";
+    is >> user.age;
+    cout << "Enter address." << endl;
+    is >> user.address;
     return is;
 }
 
+User::~User() {
+}
 
-User::~User(){};
