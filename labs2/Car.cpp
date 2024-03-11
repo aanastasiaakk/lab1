@@ -10,7 +10,14 @@ Car::Car(const char* brand, const char* plate, int numberOfDoors)
 
 Car::Car(const Car& other) : Vehicle(other.getBrand(), other.getPlateNumber()), numberOfDoors(other.numberOfDoors) {}
 
-Car::Car(Car&& other) noexcept : Vehicle(move(other)), numberOfDoors(other.numberOfDoors) {}
+/*Car::Car(Car&& other) noexcept : Vehicle(move(other)), numberOfDoors(other.numberOfDoors) {}
+
+Car::Car(const Car& other) : Vehicle(other), numberOfDoors(other.numberOfDoors) {}*/
+
+Car::Car(Car&& other) noexcept
+        : Vehicle(std::move(other)), numberOfDoors(other.numberOfDoors) {
+    other.numberOfDoors = 0;
+}
 
 int Car::getNumberOfDoors() const {
     return numberOfDoors;
@@ -24,6 +31,11 @@ void Car::printInfo() const {
     cout << "Brand: " << getBrand() << ", Plate Number: " << getPlateNumber()
               << ", Number of Doors: " << numberOfDoors << endl;
 }
+
+bool Car::operator==(const Car& other) const {
+    return (numberOfDoors == other.numberOfDoors);
+}
+
 
 ostream& operator<<(ostream& os, const Car& car) {
     os << "Brand: " << car.getBrand() << ", Plate Number: " << car.getPlateNumber()

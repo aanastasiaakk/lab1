@@ -18,6 +18,8 @@ public:
 
     void printInfo() const;
 
+    bool operator==(const Car& other) const;
+
     friend ostream& operator<<(ostream& os, const Car& car);
     friend istream& operator>>(istream& is, Car& car);
 

@@ -13,6 +13,7 @@ int main() {
     User s;
     User q;
     Car w;
+    Car z;
     Truck o;
 
     cout<<"Enter information about user q:" << endl;
@@ -37,6 +38,18 @@ int main() {
     u.setName("Sophia");
     s.setName("Angie");
     s.setAge(20);
+    z.setNumberOfDoors(3);
+    w.setNumberOfDoors(5);
+
+    cout << "Compare car z and car w" << endl;
+
+    if (z.getNumberOfDoors() == w.getNumberOfDoors()){
+        cout << "They have the same number of doors" << endl;
+    } else {
+        cout << "They have a different number of doors" << endl;
+    }
+
+    cout << endl;
 
     Vehicle copyVehicle = v;
     Vehicle moveVehicle = move(copyVehicle);
