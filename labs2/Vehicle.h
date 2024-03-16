@@ -22,12 +22,13 @@ public:
     const char* getPlateNumber() const;
     void setPlateNumber(const char* plate);
 
-    void printInfo() const;
+    virtual void printInfo() const;
+    virtual void startEngine() const = 0;
 
     friend ostream& operator<<(ostream& os, const Vehicle& vehicle);
     friend istream& operator>>(istream& is, Vehicle& vehicle);
 
-    ~Vehicle();
+    virtual ~Vehicle();
 };
 
 
