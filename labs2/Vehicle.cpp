@@ -42,8 +42,12 @@ void Vehicle::setPlateNumber(const char* plate) {
     strcpy(this->plate, plate);
 }
 
-void Vehicle::printInfo() const {
+ void Vehicle::printInfo() const {
     cout << "Brand: " << brand << ", Plate: " << plate << std::endl;
+}
+
+void Vehicle::startEngine() const {
+    cout << "Vehicle engine started" << endl;
 }
 
 ostream& operator<<(ostream& os, const Vehicle& vehicle) {

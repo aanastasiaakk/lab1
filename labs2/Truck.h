@@ -4,7 +4,7 @@
 #include "vehicle.h"
 #include <iostream>
 
-class Truck : public Vehicle {
+class Truck final : public Vehicle {
 private:
     int loadCapacity;
 
@@ -17,12 +17,13 @@ public:
     int getLoadCapacity() const;
     void setLoadCapacity(int loadCapacity);
 
-    void printInfo() const;
+    void printInfo() const override;
+    void startEngine() const override;
 
     friend ostream& operator<<(ostream& os, const Truck& truck);
     friend istream& operator>>(istream& is, Truck& truck);
 
-    ~Truck();
+    virtual ~Truck();
 };
 
 #endif // TRUCK_H

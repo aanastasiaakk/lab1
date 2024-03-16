@@ -25,6 +25,10 @@ void Truck::printInfo() const {
               << ", Load Capacity: " << loadCapacity << " tons" << endl;
 }
 
+void Truck::startEngine() const {
+    cout << "Truck engine started" << endl;
+}
+
 ostream& operator<<(ostream& os, const Truck& truck) {
     os << "Brand: " << truck.getBrand() << ", Plate Number: " << truck.getPlateNumber()
        << ", Load Capacity: " << truck.getLoadCapacity() << " tons";

@@ -12,7 +12,7 @@ class User {
 private:
     int age;
     char name[50];
-    Address address; // Composition
+    Address address;
 public:
     User();
     User(int age_, const char* name_, const Address& address_);

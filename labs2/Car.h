@@ -3,7 +3,7 @@
 
 #include "vehicle.h"
 
-class Car : public Vehicle {
+class Car final : public Vehicle {
 private:
     int numberOfDoors;
 
@@ -16,14 +16,15 @@ public:
     int getNumberOfDoors() const;
     void setNumberOfDoors(int numberOfDoors);
 
-    void printInfo() const;
+    void printInfo() const override;
+    void startEngine() const override;
 
     bool operator==(const Car& other) const;
 
     friend ostream& operator<<(ostream& os, const Car& car);
     friend istream& operator>>(istream& is, Car& car);
 
-    ~Car();
+    virtual ~Car();
 };
 
 #endif // CAR_H

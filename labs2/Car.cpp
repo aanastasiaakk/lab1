@@ -10,9 +10,6 @@ Car::Car(const char* brand, const char* plate, int numberOfDoors)
 
 Car::Car(const Car& other) : Vehicle(other.getBrand(), other.getPlateNumber()), numberOfDoors(other.numberOfDoors) {}
 
-/*Car::Car(Car&& other) noexcept : Vehicle(move(other)), numberOfDoors(other.numberOfDoors) {}
-
-Car::Car(const Car& other) : Vehicle(other), numberOfDoors(other.numberOfDoors) {}*/
 
 Car::Car(Car&& other) noexcept
         : Vehicle(std::move(other)), numberOfDoors(other.numberOfDoors) {
@@ -30,6 +27,10 @@ void Car::setNumberOfDoors(int numberOfDoors) {
 void Car::printInfo() const {
     cout << "Brand: " << getBrand() << ", Plate Number: " << getPlateNumber()
               << ", Number of Doors: " << numberOfDoors << endl;
+}
+
+void Car::startEngine() const {
+    cout << "Car engine started" << endl;
 }
 
 bool Car::operator==(const Car& other) const {
