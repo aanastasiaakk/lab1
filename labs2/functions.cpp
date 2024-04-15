@@ -27,14 +27,13 @@ void addTruck(Truck* trucks[], int& count) {
 }
 
 void displayTrucks(Truck* trucks[], int count) {
-
-    cout << "List of trucks:" << endl;
+   
+    cout << "List of cars:" << endl;
     for (int i = 0; i < count; ++i) {
         cout << "Car " << (i + 1) << ": " << *trucks[i] << endl;
     }
 }
 
-/*
 
 void addCar(Car* cars[], int& count) {
     if (count >= MAX_VEHICLES) {
@@ -54,6 +53,7 @@ void addCar(Car* cars[], int& count) {
     cars[count++] = new Car(brand, plate, numberOfDoors);
     cout << "Car added successfully!" << endl;
 }
+
 void displayCars(Car* cars[], int count) {
 
     cout << "List of cars:" << endl;
@@ -61,7 +61,6 @@ void displayCars(Car* cars[], int count) {
         cout << "Car " << (i + 1) << ": " << *cars[i] << endl;
     }
 }
-*/
 
 void addUser(User* users[], int& count) {
     if (count >= MAX_USERS) {

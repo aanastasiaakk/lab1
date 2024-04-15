@@ -4,7 +4,7 @@
 #include "User.h"
 #include "Vehicle.h"
 #include "Parkingticket.h"
-//#include "Car.h"
+#include "Car.h"
 #include "Truck.h"
 #include "functions.h"
 using namespace std;
@@ -15,7 +15,7 @@ int main() {
     int option_a;
     int option_b;
     string password = "123456";
-   // Car* cars[MAX_VEHICLES];
+    Car* cars[MAX_VEHICLES];
     Truck* trucks[MAX_VEHICLES];
     User* users[MAX_USERS];
     int userCount = 0;
@@ -49,7 +49,7 @@ int main() {
 
             switch (choice) {
                 case 1:
-                    //addCar(cars, carCount);
+                    addCar(cars, carCount);
                     break;
                 case 2:
                     addTruck(trucks, truckCount);
@@ -58,10 +58,9 @@ int main() {
                     addUser(users, userCount);
                     break;
                 case 4:
-                    //displayCars(cars, carCount);
+                    displayCars(cars, carCount);
                     displayTrucks(trucks, truckCount);
                     displayUsers(users, userCount);
-//                    readCar();
                     break;
                 case 5:
                     cout << "Exiting..." << endl;
@@ -73,6 +72,7 @@ int main() {
     } else {
         cout << "You entered the system as a user." << endl;
     }
+
     return 0;
 }
 
