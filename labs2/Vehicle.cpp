@@ -51,7 +51,7 @@ void Vehicle::startEngine() const {
 }
 
 ostream& operator<<(ostream& os, const Vehicle& vehicle) {
-    os << "Brand: " << vehicle.brand << ", Plate: " << vehicle.plate;
+   os << vehicle.brand << vehicle.plate;
     return os;
 }
 
@@ -61,3 +61,5 @@ istream& operator>>(istream& is, Vehicle& vehicle) {
 }
 
 Vehicle::~Vehicle() {}
+
+

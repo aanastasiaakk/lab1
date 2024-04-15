@@ -30,8 +30,7 @@ void Truck::startEngine() const {
 }
 
 ostream& operator<<(ostream& os, const Truck& truck) {
-    os << "Brand: " << truck.getBrand() << ", Plate Number: " << truck.getPlateNumber()
-       << ", Load Capacity: " << truck.getLoadCapacity() << " tons";
+    os <<  truck.getBrand()  << truck.getPlateNumber() << truck.getLoadCapacity();
     return os;
 }
 
@@ -39,11 +38,8 @@ istream& operator>>(istream& is, Truck& truck) {
     char brand[50];
     char plate[20];
     int loadCapacity;
-    cout << "Enter brand: ";
     is >> brand;
-    cout << "Enter plate number: ";
     is >> plate;
-    cout << "Enter load capacity (in tons): ";
     is >> loadCapacity;
 
     truck.setBrand(brand);
@@ -54,3 +50,5 @@ istream& operator>>(istream& is, Truck& truck) {
 }
 
 Truck::~Truck() {}
+
+

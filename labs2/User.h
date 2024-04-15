@@ -12,18 +12,15 @@ class User {
 private:
     int age;
     char name[50];
-    Address address;
 public:
     User();
-    User(int age_, const char* name_, const Address& address_);
+    User(int age_, const char* name_);
     User(const User &other);
 
     int getAge() const;
     void setAge(int age_);
     const char* getName() const;
     void setName(const char* name_);
-    const Address& getAddress() const;
-    void setAddress(const Address& address_);
 
     void printInfo() const;
 

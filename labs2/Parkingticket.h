@@ -5,7 +5,7 @@
 using namespace std;
 
 
-class Parkingticket final {
+class Parkingticket {
 private:
     int number_ticket;
     int date;

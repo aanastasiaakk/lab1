@@ -1,12 +1,14 @@
-#ifndef CAR_H
-#define CAR_H
+/*#ifndef CAR_H
+#define CAR_H*//*
+
+#ifndef LABS2_CAR_H
+#define LABS2_CAR_H
 
 #include "vehicle.h"
 
 class Car final : public Vehicle {
 private:
     int numberOfDoors;
-
 public:
     Car();
     Car(const char* brand, const char* plate, int numberOfDoors);
@@ -24,7 +26,8 @@ public:
     friend ostream& operator<<(ostream& os, const Car& car);
     friend istream& operator>>(istream& is, Car& car);
 
-    virtual ~Car();
+    virtual ~Car(){};
 };
 
 #endif // CAR_H
+*/

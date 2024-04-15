@@ -8,7 +8,7 @@ User::User() : age(0) {
     strcpy(name, "");
 }
 
-User::User(int age_, const char* name_, const Address& address_) : age(age_), address(address_) {
+User::User(int age_, const char* name_) : age(age_) {
     strncpy(name, name_, 49);
     name[49] = '\0';
 }
@@ -30,17 +30,9 @@ void User::setName(const char* name_) {
     name[49] = '\0';
 }
 
-const Address& User::getAddress() const {
-    return address;
-}
-
-void User::setAddress(const Address& address_) {
-    address = address_;
-}
 
 void User::printInfo() const {
     cout << "Name: " << name << ", Age: " << age << endl;
-    address.printInfo();
 }
 
 bool User::operator==(const User& other) const {
@@ -48,7 +40,7 @@ bool User::operator==(const User& other) const {
 }
 
 ostream& operator<<(ostream& os, const User& user) {
-    os << "Name: " << user.name << ", Age: " << user.age << ", Address: " << user.address;
+    os << "Name: " << user.name << ", Age: " << user.age ;
     return os;
 }
 
@@ -57,8 +49,6 @@ istream& operator>>(istream& is, User& user) {
     is >> user.name;
     cout << "Enter age: ";
     is >> user.age;
-    cout << "Enter address." << endl;
-    is >> user.address;
     return is;
 }
 
