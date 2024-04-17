@@ -39,8 +39,7 @@ bool Car::operator==(const Car& other) const {
 
 
 ostream& operator<<(ostream& os, const Car& car) {
-    os << "Brand: " << car.getBrand() << ", Plate Number: " << car.getPlateNumber()
-       << ", Number of Doors: " << car.getNumberOfDoors();
+    os  << car.getBrand() << endl << car.getPlateNumber() << endl<< car.getNumberOfDoors();
     return os;
 }
 
@@ -48,11 +47,8 @@ istream& operator>>(istream& is, Car& car) {
     char brand[50];
     char plate[20];
     int numberOfDoors;
-    cout << "Enter brand: ";
     is >> brand;
-    cout << "Enter plate number: ";
     is >> plate;
-    cout << "Enter number of doors: ";
     is >> numberOfDoors;
 
     car.setBrand(brand);

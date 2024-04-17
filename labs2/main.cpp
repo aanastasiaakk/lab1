@@ -10,6 +10,7 @@
 using namespace std;
 
 
+
 int main() {
     int choice;
     int option_a;
@@ -49,7 +50,10 @@ int main() {
 
             switch (choice) {
                 case 1:
+                    loadCarsFromFile(*cars,carCount, "cars.txt");
                     addCar(cars, carCount);
+                    saveCarsToFile(*cars,carCount,"cars.txt");
+
                     break;
                 case 2:
                     addTruck(trucks, truckCount);

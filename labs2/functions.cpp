@@ -3,6 +3,8 @@
 //
 
 #include "functions.h"
+#include <iostream>
+#include <fstream>
 
 void addTruck(Truck* trucks[], int& count) {
     if (count >= MAX_VEHICLES) {
@@ -23,14 +25,14 @@ void addTruck(Truck* trucks[], int& count) {
     cin >> loadCapacity;
     cin.ignore();
     trucks[count++] = new Truck(brand, plate, numberOfDoors);
-    cout << "Car added successfully!" << endl;
+    cout << "Truck added successfully!" << endl;
 }
 
 void displayTrucks(Truck* trucks[], int count) {
    
-    cout << "List of cars:" << endl;
+    cout << "List of trucks:" << endl;
     for (int i = 0; i < count; ++i) {
-        cout << "Car " << (i + 1) << ": " << *trucks[i] << endl;
+        cout << "Truck " << (i + 1) << ": " << *trucks[i] << endl;
     }
 }
 
@@ -58,7 +60,7 @@ void displayCars(Car* cars[], int count) {
 
     cout << "List of cars:" << endl;
     for (int i = 0; i < count; ++i) {
-        cout << "Car " << (i + 1) << ": " << *cars[i] << endl;
+        cout << "Car "  << (i + 1) << ": " << endl << *cars[i] << endl;
     }
 }
 
@@ -86,4 +88,39 @@ void displayUsers( User* users[], int count) {
     }
 }
 
+
+void saveCarsToFile(const Car cars[], int carCount, const string& filename) {
+    ofstream outFile(filename);
+
+    if (outFile.is_open()) {
+        outFile << carCount << endl; // Записуємо кількість автомобілів
+
+        for (int i = 0; i < carCount; ++i) {
+            outFile << cars[i] << endl;
+        }
+
+        outFile.close();
+        cout << "Cars data saved successfully." << endl;
+    } else {
+        cout << "Unable to open file for writing." << endl;
+    }
+}
+
+void loadCarsFromFile(Car cars[], int& carCount, const string& filename) {
+    ifstream inFile(filename);
+    carCount = 0; // Записуємо 0 автомобілів початково, оскільки ми завантажуємо їх з файлу
+
+    if (inFile.is_open()) {
+        inFile >> carCount; // Зчитуємо кількість автомобілів
+
+        for (int i = 0; i < carCount; ++i) {
+            inFile >> cars[i];
+        }
+
+        inFile.close();
+        cout << "Cars data loaded successfully." << endl;
+    } else {
+        cout << "Unable to open file for reading." << endl;
+    }
+}
 

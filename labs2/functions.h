@@ -24,5 +24,8 @@ void addUser(User* users[], int& count);
 
 void displayUsers(User* users[], int count);
 
+void saveCarsToFile(const Car cars[], int carCount, const string& filename);
+
+void loadCarsFromFile(Car cars[], int& carCount, const string& filename);
 
 #endif //LABS2_FUNCTIONS_H
