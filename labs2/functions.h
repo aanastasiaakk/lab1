@@ -7,25 +7,22 @@
 #include "Truck.h"
 #include "Car.h"
 #include "User.h"
+#include "Parkingticket.h"
 
 
 const int MAX_VEHICLES = 100;
 const int MAX_USERS = 100;
+const int MAX_TICKETS = 100;
 
-void addTruck(Truck* trucks[], int& count);
+void addTruck(Truck* trucks[], int& tcount);
 
-void displayTrucks (Truck* trucks[], int count);
+void addCar(Car* cars[], int& ccount);
 
-void addCar(Car* cars[], int& count);
+void addUser(User* users[], int& ucount);
 
-void displayCars (Car* cars[], int count);
+void displaySavedInfo();
 
-void addUser(User* users[], int& count);
+void addTicket(Parkingticket* tickets[], int& tkcount);
 
-void displayUsers(User* users[], int count);
-
-void saveCarsToFile(const Car cars[], int carCount, const string& filename);
-
-void loadCarsFromFile(Car cars[], int& carCount, const string& filename);
 
 #endif //LABS2_FUNCTIONS_H

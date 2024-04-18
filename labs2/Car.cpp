@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include "Car.h"
 
 using namespace std;
@@ -57,5 +58,42 @@ istream& operator>>(istream& is, Car& car) {
 
     return is;
 }
+void Car::addCar(const char* filename) {
+    // Open the file in append mode
+    ofstream outFile(filename, ios::app);
+    if (!outFile.is_open()) {
+        cerr << "Error opening file for writing!" << endl;
+        return;
+    }
+
+    // Write the car details to the file
+    outFile << getBrand() << endl << getPlateNumber() << endl << getNumberOfDoors() << endl;
+
+    // Close the file
+    outFile.close();
+
+    cout << "Car added successfully!" << endl;
+}
+
+// Function to display all car information
+static void displayAllCars(const char* filename) {
+    // Open the file for reading
+    ifstream inFile(filename);
+    if (!inFile.is_open()) {
+        cerr << "Error opening file for reading!" << endl;
+        return;
+    }
+
+    // Read and display cars from the file
+    cout << "Cars Information:" << endl;
+    Car car;
+    while (inFile >> car) {
+        car.printInfo();
+    }
+
+    // Close the file
+    inFile.close();
+}
+
 
 Car::~Car() {}

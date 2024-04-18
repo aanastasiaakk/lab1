@@ -6,8 +6,8 @@
 #include <iostream>
 #include <fstream>
 
-void addTruck(Truck* trucks[], int& count) {
-    if (count >= MAX_VEHICLES) {
+void addTruck(Truck* trucks[], int& tcount) {
+    if (tcount >= MAX_VEHICLES) {
         cout << "Cannot add more trucks. Maximum limit reached." << endl;
         return;
     }
@@ -24,21 +24,22 @@ void addTruck(Truck* trucks[], int& count) {
     cout << "Enter load capacity: ";
     cin >> loadCapacity;
     cin.ignore();
-    trucks[count++] = new Truck(brand, plate, numberOfDoors);
+    trucks[tcount++] = new Truck(brand, plate, numberOfDoors);
+    cout << "Truck added successfully!" << endl;
+
+    ofstream outFile("truck_info.txt", ios::app);
+    if (outFile.is_open()) {
+        outFile << "Brand: " << brand << ", Plate: " << plate << ", Doors: " << numberOfDoors << ", Load Capacity: " << loadCapacity << endl;
+        outFile.close();
+    } else {
+        cout << "Error: Unable to open file for writing." << endl;
+    }
+
     cout << "Truck added successfully!" << endl;
 }
 
-void displayTrucks(Truck* trucks[], int count) {
-   
-    cout << "List of trucks:" << endl;
-    for (int i = 0; i < count; ++i) {
-        cout << "Truck " << (i + 1) << ": " << *trucks[i] << endl;
-    }
-}
-
-
-void addCar(Car* cars[], int& count) {
-    if (count >= MAX_VEHICLES) {
+void addCar(Car* cars[], int& ccount) {
+    if (ccount >= MAX_VEHICLES) {
         cout << "Cannot add more cars. Maximum limit reached." << endl;
         return;
     }
@@ -52,75 +53,112 @@ void addCar(Car* cars[], int& count) {
     cout << "Enter number of doors: ";
     cin >> numberOfDoors;
     cin.ignore();
-    cars[count++] = new Car(brand, plate, numberOfDoors);
+    cars[ccount++] = new Car(brand, plate, numberOfDoors);
+    cout << "Car added successfully!" << endl;
+    ofstream outFile("car_info.txt", ios::app);
+    if (outFile.is_open()) {
+        outFile << "Brand: " << brand << ", Plate: " << plate << ", Doors: " << numberOfDoors << endl;
+        outFile.close();
+    } else {
+        cout << "Error: Unable to open file for writing." << endl;
+    }
+
     cout << "Car added successfully!" << endl;
 }
 
-void displayCars(Car* cars[], int count) {
-
-    cout << "List of cars:" << endl;
-    for (int i = 0; i < count; ++i) {
-        cout << "Car "  << (i + 1) << ": " << endl << *cars[i] << endl;
-    }
-}
-
-void addUser(User* users[], int& count) {
-    if (count >= MAX_USERS) {
+void addUser(User* users[], int& ucount) {
+    if (ucount >= MAX_USERS) {
         cout << "Cannot add more users. Maximum limit reached." << endl;
         return;
     }
-
     int age;
     char name[50];
-
     cout << "Enter name: ";
     cin >> name;
     cout << "Enter age: ";
     cin >> age;
-    users[count++] = new User(age, name);
+    users[ucount++] = new User(age, name);
+    cout << "User added successfully!" << endl;
+
+    ofstream outFile("user_info.txt", ios::app);
+    if (outFile.is_open()) {
+        outFile << "Name: " << name << ", Age: " << age << endl;
+        outFile.close();
+    } else {
+        cout << "Error: Unable to open file for writing." << endl;
+    }
+
     cout << "User added successfully!" << endl;
 }
-
-void displayUsers( User* users[], int count) {
-    cout << "Users:" << endl;
-    for (int i = 0; i < count; ++i) {
-        users[i]->printInfo();
+void addTicket(Parkingticket* tickets[], int& tkcount) {
+    if (tkcount >= MAX_TICKETS) {
+        cout << "Cannot give more tickets. Maximum limit reached." << endl;
+        return;
     }
-}
+    int number_ticket;
+    int date;
+    cout << "Enter number of the ticket: ";
+    cin >> number_ticket;
+    cout << "Enter today's date: ";
+    cin >> date;
+    tickets[tkcount++] = new Parkingticket(number_ticket, date);
+    cout << "Ticket added successfully!" << endl;
 
-
-void saveCarsToFile(const Car cars[], int carCount, const string& filename) {
-    ofstream outFile(filename);
-
+    ofstream outFile("tickets_info.txt", ios::app);
     if (outFile.is_open()) {
-        outFile << carCount << endl; // Записуємо кількість автомобілів
-
-        for (int i = 0; i < carCount; ++i) {
-            outFile << cars[i] << endl;
-        }
-
+        outFile << "Number: " << number_ticket << ", Date: " << date << endl;
         outFile.close();
-        cout << "Cars data saved successfully." << endl;
     } else {
-        cout << "Unable to open file for writing." << endl;
+        cout << "Error: Unable to open file for writing." << endl;
     }
+    cout << "Ticket added successfully!" << endl;
 }
 
-void loadCarsFromFile(Car cars[], int& carCount, const string& filename) {
-    ifstream inFile(filename);
-    carCount = 0; // Записуємо 0 автомобілів початково, оскільки ми завантажуємо їх з файлу
+void displaySavedInfo() {
+    string line;
 
-    if (inFile.is_open()) {
-        inFile >> carCount; // Зчитуємо кількість автомобілів
-
-        for (int i = 0; i < carCount; ++i) {
-            inFile >> cars[i];
+    ifstream truckFile("truck_info.txt");
+    if (truckFile.is_open()) {
+        cout << "Saved Truck Information:" << endl;
+        while (getline(truckFile, line)) {
+            cout << line << endl;
         }
-
-        inFile.close();
-        cout << "Cars data loaded successfully." << endl;
+        truckFile.close();
     } else {
-        cout << "Unable to open file for reading." << endl;
+        cout << "No saved truck information found." << endl;
     }
+
+    ifstream carFile("car_info.txt");
+    if (carFile.is_open()) {
+        cout << "\nSaved Car Information:" << endl;
+        while (getline(carFile, line)) {
+            cout << line << endl;
+        }
+        carFile.close();
+    } else {
+        cout << "No saved car information found." << endl;
+    }
+
+    ifstream userFile("user_info.txt");
+    if (userFile.is_open()) {
+        cout << "\nSaved User Information:" << endl;
+        while (getline(userFile, line)) {
+            cout << line << endl;
+        }
+        userFile.close();
+    } else {
+        cout << "No saved user information found." << endl;
+    }
+    ifstream ticketFile("tickets_info.txt");
+    if (ticketFile.is_open()) {
+        cout << "\nSaved ticket information:" << endl;
+        while (getline(ticketFile, line)) {
+            cout << line << endl;
+        }
+        ticketFile.close();
+    } else {
+        cout << "No saved ticket information found." << endl;
+    }
+
 }
 

@@ -1,0 +1,2 @@
+Brand: bmw, Plate: ce3421ci, Doors: 5
+Brand: mazda, Plate: at5424fd, Doors: 3

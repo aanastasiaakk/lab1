@@ -23,8 +23,8 @@ public:
 
     friend ostream& operator<<(ostream& os, const Car& car);
     friend istream& operator>>(istream& is, Car& car);
-
-    virtual ~Car();
+  
+    virtual ~Car();void addCar(const char* filename);
 };
 
 

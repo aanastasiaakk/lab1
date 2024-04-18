@@ -9,24 +9,27 @@
 #include "functions.h"
 using namespace std;
 
-
-
 int main() {
     int choice;
     int option_a;
     int option_b;
     string password = "123456";
+
     Car* cars[MAX_VEHICLES];
     Truck* trucks[MAX_VEHICLES];
     User* users[MAX_USERS];
-    int userCount = 0;
-    int carCount = 0;
-    int truckCount = 0;
+    Parkingticket* tickets[MAX_TICKETS];
+    int ccount = 0;
+    int tcount = 0;
+    int ucount = 0;
+    int tkcount = 0;
+
     cout << "Welcome to our parking system!" << endl;
-    cout << "Click 1 if you are an administrator, otherwise click something else: ";
+    cout << "Click 1 if you are an administrator, otherwise click 2: ";
     cin >> choice;
 
-    if (choice == 1) {
+    switch(choice) {
+        case 1:
         do {
             cout << "Enter your password: ";
             cin >> password;
@@ -50,21 +53,16 @@ int main() {
 
             switch (choice) {
                 case 1:
-                    loadCarsFromFile(*cars,carCount, "cars.txt");
-                    addCar(cars, carCount);
-                    saveCarsToFile(*cars,carCount,"cars.txt");
-
+                    addCar(cars, ccount);
                     break;
                 case 2:
-                    addTruck(trucks, truckCount);
+                    addTruck(trucks, tcount);
                     break;
                 case 3:
-                    addUser(users, userCount);
+                    addUser(users, ucount);
                     break;
                 case 4:
-                    displayCars(cars, carCount);
-                    displayTrucks(trucks, truckCount);
-                    displayUsers(users, userCount);
+               displaySavedInfo();
                     break;
                 case 5:
                     cout << "Exiting..." << endl;
@@ -73,10 +71,42 @@ int main() {
                     cout << "Invalid option! Please try again." << endl;
             }
         }
-    } else {
-        cout << "You entered the system as a user." << endl;
-    }
+        break;
 
+        case 2:
+        cout << "You entered the system as a user." << endl;
+
+        while(true) {
+            cout << "\n1. Show the registered information:" << endl;
+            cout << "2. Register yourself to the system." << endl;
+            cout << "3. Take a ticket. " << endl;
+            cout << "4. Exit." << endl;
+            cout << "Enter your option :";
+            int choice2;
+            cin >> choice2;
+
+            switch (choice2) {
+                case 1:
+                    displaySavedInfo();
+                    break;
+                case 2:
+                    addUser(users,ucount);
+                    break;
+                case 3:
+                    addTicket(tickets, tkcount);
+
+                    break;
+                case 4:
+                    cout << "Exiting..." << endl;
+                    return 0;
+                default:
+                    cout << "Ooops.. You may have chosen a non-existing option:(!" << endl;
+
+            }
+        }
+            break;
+    }
     return 0;
 }
+
 
