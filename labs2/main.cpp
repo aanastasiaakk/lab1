@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
+#include <memory>
 #include "User.h"
 #include "Vehicle.h"
 #include "Parkingticket.h"
@@ -57,7 +58,7 @@ int main() {
                     addCar(cars, ccount);
                     break;
                 case 2:
-                    addTruck(trucks, tcount);
+                    addTruck(trucks,tcount);
                     break;
                 case 3:
                     addUser(users, ucount);

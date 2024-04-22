@@ -7,7 +7,7 @@ using namespace std;
 Car::Car() : Vehicle(), numberOfDoors(0) {}
 
 Car::Car(const char* brand, const char* plate, int numberOfDoors)
-        : Vehicle(brand, plate), numberOfDoors(numberOfDoors) {}
+        : Vehicle(brand, plate), numberOfDoors(make_shared<int>(numberOfDoors)) {}
 
 Car::Car(const Car& other) : Vehicle(other.getBrand(), other.getPlateNumber()), numberOfDoors(other.numberOfDoors) {}
 
@@ -18,11 +18,11 @@ Car::Car(Car&& other) noexcept
 }
 
 int Car::getNumberOfDoors() const {
-    return numberOfDoors;
+    return *numberOfDoors;
 }
 
 void Car::setNumberOfDoors(int numberOfDoors) {
-    this->numberOfDoors = numberOfDoors;
+    this->numberOfDoors = make_shared<int>(numberOfDoors);
 }
 
 void Car::printInfo() const {

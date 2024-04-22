@@ -1,10 +1,8 @@
-//
-// Created by Nastya on 08/04/2024.
-//
-
 #include "functions.h"
 #include <iostream>
 #include <fstream>
+#include <stdexcept>
+#include <memory>
 
 void addTruck(Truck* trucks[], int& tcount) {
     if (tcount >= MAX_VEHICLES) {
@@ -25,6 +23,7 @@ void addTruck(Truck* trucks[], int& tcount) {
     cin >> loadCapacity;
     cin.ignore();
     trucks[tcount++] = new Truck(brand, plate, numberOfDoors);
+    tcount++;
     cout << "Truck added successfully!" << endl;
 
     ofstream outFile("truck_info.txt", ios::app);

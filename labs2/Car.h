@@ -1,11 +1,11 @@
 #ifndef CAR_H
 #define CAR_H
-
+#include <memory>
 #include "vehicle.h"
 
 class Car final : public Vehicle {
 private:
-    int numberOfDoors;
+     shared_ptr<int>numberOfDoors;
 
 public:
     Car();
