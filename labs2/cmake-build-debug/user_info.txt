@@ -1,3 +1,7 @@
 Name: Anastasia, Age: 17
 Name: Sonya, Age: 17
 Name: Brian, Age: 21
+Name: Dasha, Age: 19
+Name: Maryana, Age: 44
+Name: Vlad, Age: 23
+Name: Volodymir, Age: 23

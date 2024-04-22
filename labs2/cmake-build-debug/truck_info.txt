@@ -1,2 +1,3 @@
 Brand: man, Plate: ce3456co, Doors: 3, Load Capacity: 130
 Brand: man, Plate: ce3456co, Doors: 4, Load Capacity: 120
+Brand: volvo, Plate: ce3444cx, Doors: 3, Load Capacity: 100

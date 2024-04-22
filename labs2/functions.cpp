@@ -8,8 +8,8 @@
 
 void addTruck(Truck* trucks[], int& tcount) {
     if (tcount >= MAX_VEHICLES) {
-        cout << "Cannot add more trucks. Maximum limit reached." << endl;
-        return;
+        throw
+                runtime_error("Cannot add more trucks. Maximum limit reached.");
     }
     char brand[50];
     char plate[20];
@@ -40,8 +40,8 @@ void addTruck(Truck* trucks[], int& tcount) {
 
 void addCar(Car* cars[], int& ccount) {
     if (ccount >= MAX_VEHICLES) {
-        cout << "Cannot add more cars. Maximum limit reached." << endl;
-        return;
+        throw
+                runtime_error("Cannot add more cars. Maximum limit reached.");
     }
     char brand[50];
     char plate[20];
@@ -60,7 +60,8 @@ void addCar(Car* cars[], int& ccount) {
         outFile << "Brand: " << brand << ", Plate: " << plate << ", Doors: " << numberOfDoors << endl;
         outFile.close();
     } else {
-        cout << "Error: Unable to open file for writing." << endl;
+        throw
+                runtime_error("Error: Unable to open file for writing. ");
     }
 
     cout << "Car added successfully!" << endl;
@@ -68,8 +69,8 @@ void addCar(Car* cars[], int& ccount) {
 
 void addUser(User* users[], int& ucount) {
     if (ucount >= MAX_USERS) {
-        cout << "Cannot add more users. Maximum limit reached." << endl;
-        return;
+        throw
+                runtime_error("Cannot add more users. Maximum limit reached.");
     }
     int age;
     char name[50];
@@ -85,15 +86,16 @@ void addUser(User* users[], int& ucount) {
         outFile << "Name: " << name << ", Age: " << age << endl;
         outFile.close();
     } else {
-        cout << "Error: Unable to open file for writing." << endl;
+        throw
+                runtime_error("Error: Unable to open file for writing. ");
     }
 
     cout << "User added successfully!" << endl;
 }
 void addTicket(Parkingticket* tickets[], int& tkcount) {
     if (tkcount >= MAX_TICKETS) {
-        cout << "Cannot give more tickets. Maximum limit reached." << endl;
-        return;
+        throw
+                runtime_error("Cannot add more tickets. Maximum limit reached.");
     }
     int number_ticket;
     int date;
@@ -109,7 +111,8 @@ void addTicket(Parkingticket* tickets[], int& tkcount) {
         outFile << "Number: " << number_ticket << ", Date: " << date << endl;
         outFile.close();
     } else {
-        cout << "Error: Unable to open file for writing." << endl;
+        throw
+                runtime_error("Error: Unable to open file for writing. ");
     }
     cout << "Ticket added successfully!" << endl;
 }

@@ -19,6 +19,7 @@ int main() {
     Truck* trucks[MAX_VEHICLES];
     User* users[MAX_USERS];
     Parkingticket* tickets[MAX_TICKETS];
+
     int ccount = 0;
     int tcount = 0;
     int ucount = 0;

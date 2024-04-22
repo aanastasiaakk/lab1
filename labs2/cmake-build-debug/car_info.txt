@@ -1,2 +1,6 @@
 Brand: bmw, Plate: ce3421ci, Doors: 5
 Brand: mazda, Plate: at5424fd, Doors: 3
+Brand: MERCEDES, Plate: CE0809DK, Doors: 4
+Brand: Chrysler, Plate: ce2371em, Doors: 5
+Brand: opel, Plate: ce1122cv, Doors: 5
+Brand: bmw, Plate: ce9537co, Doors: 5
